@@ -6,6 +6,8 @@ export const Tile = styled.div`
   background-color: #eee4da;
   border-radius: 3px;
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
+  margin-top: ${p => p.top}px;
+  margin-left: ${p => p.left}px;
 `;
