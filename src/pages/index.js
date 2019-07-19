@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 
-import styled from "styled-components";
-import GameField from "components/game-field";
+import features from "features";
 
 class Home extends Component {
   render() {
-    return <GameField />;
+    return <features.gamefield.page />;
   }
 }
 

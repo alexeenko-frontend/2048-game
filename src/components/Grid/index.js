@@ -8,7 +8,7 @@ class GridComponent extends Component {
     let cells = [];
 
     for (let i = 0; i < CELLS_COUNT * 4; i++) {
-      cells[i] = <Cell key={`cell-${i}`} />;
+      cells.push(<Cell key={`cell-${i}`} />);
     }
 
     return cells;

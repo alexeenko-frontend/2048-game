@@ -4,7 +4,7 @@ import { Tile } from "./styled";
 
 class TileComponent extends Component {
   render() {
-    return <Tile {...this.props} />;
+    return <Tile {...this.props}>{this.props.value}</Tile>;
   }
 }
 

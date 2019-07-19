@@ -25,11 +25,9 @@ const bindMiddleware = middleware => {
 
 function configureStore(initialState = {}) {
   const persistConfig = {
-    key: "maProject145",
+    key: "2048-game",
     storage,
-    whitelist: [
-     
-    ]
+    whitelist: []
   };
   const persistedReducer = persistReducer(persistConfig, rootReducers);
   const store = createStore(

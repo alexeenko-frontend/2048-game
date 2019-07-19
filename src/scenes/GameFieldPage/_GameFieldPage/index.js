@@ -1,18 +1,22 @@
 import React, { Component } from "react";
 
 import { GameField } from "./styled";
-import Grid from "components/grid";
-import Tile from "components/tile";
+import Grid from "components/Grid";
+import Tile from "components/Tile";
 import { STEP, CELLS_COUNT } from "constans";
+import { random } from "utils";
 
 class GameFieldComponent extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      top: 0,
-      left: 0
+      data: []
     };
+  }
+
+  componentDidMount() {
+    this.setState(() => ({ data: this.getTiles() }));
   }
 
   handleKeyDown = e => {
@@ -48,15 +52,34 @@ class GameFieldComponent extends Component {
     }
   };
 
-  render() {
-    const { top, left } = this.state;
+  getRandomCoordinate() {
+    let f = random(0, CELLS_COUNT - 1) * STEP;
+    console.log(f);
+    return f;
+  }
 
+  getTiles() {
+    let tiles = [];
+
+    for (let i = 0; i < 2; i++) {
+      tiles.push(
+        <Tile
+          key={`tile-${i}`}
+          top={this.getRandomCoordinate()}
+          left={this.getRandomCoordinate()}
+          value={2}
+        />
+      );
+    }
+
+    return tiles;
+  }
+
+  render() {
     return (
       <GameField onKeyDown={this.handleKeyDown} tabIndex="0">
         <Grid />
-        <div>
-          <Tile top={top} left={left} />
-        </div>
+        <div>{this.state.data.map(item => item)}</div>
       </GameField>
     );
   }
